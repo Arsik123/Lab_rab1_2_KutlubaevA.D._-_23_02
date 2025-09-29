@@ -71,17 +71,15 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
         {
             if (double.TryParse(TxtTrapBaseA.Text, out double bA) && bA > 0 &&
                 double.TryParse(TxtTrapBaseB.Text, out double bB) && bB > 0 &&
-                double.TryParse(TxtTrapHeight.Text, out double h) && h > 0 &&
-                double.TryParse(TxtTrapSideC.Text, out double sC) && sC > 0 &&
-                double.TryParse(TxtTrapSideD.Text, out double sD) && sD > 0)
+                double.TryParse(TxtTrapHeight.Text, out double h) && h > 0)
             {
-                Trapezoid trapezoid = new Trapezoid(bA, bB, h, sC, sD);
+                Trapezoid trapezoid = new Trapezoid(bA, bB, h);
                 double area = trapezoid.CalculateArea();
                 ResultTrap.Text = $"{trapezoid.GetInfo()}\nПлощадь: {area:F2}";
             }
             else
             {
-                MessageBox.Show("Пожалуйста, введите корректные значения для всех полей трапеции.");
+                MessageBox.Show("Пожалуйста, введите корректные значения для оснований и высоты трапеции.");
             }
         }
 
@@ -89,28 +87,35 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
         {
             if (double.TryParse(TxtTrapBaseA.Text, out double bA) && bA > 0 &&
                 double.TryParse(TxtTrapBaseB.Text, out double bB) && bB > 0 &&
-                double.TryParse(TxtTrapHeight.Text, out double h) && h > 0 &&
-                double.TryParse(TxtTrapSideC.Text, out double sC) && sC > 0 &&
-                double.TryParse(TxtTrapSideD.Text, out double sD) && sD > 0)
+                double.TryParse(TxtTrapHeight.Text, out double h) && h > 0)
             {
-                Trapezoid trapezoid = new Trapezoid(bA, bB, h, sC, sD);
+                Trapezoid trapezoid = new Trapezoid(bA, bB, h);
                 double perimeter = trapezoid.CalculatePerimeter();
-                ResultTrap.Text = $"{trapezoid.GetInfo()}\nПериметр: {perimeter:F2}";
+                ResultTrap.Text = $"{trapezoid.GetInfo()}\nВычисленная боковая сторона: {trapezoid.Side:F2}\nПериметр: {perimeter:F2}";
             }
             else
             {
-                MessageBox.Show("Пожалуйста, введите корректные значения для всех полей трапеции.");
+                MessageBox.Show("Пожалуйста, введите корректные значения для оснований и высоты трапеции.");
             }
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!char.IsDigit(e.Text, 0) && e.Text != ",")
+            var textBox = sender as System.Windows.Controls.TextBox;
+
+            if (textBox.Text.Length == 0 && e.Text == ",")
             {
                 e.Handled = true;
+                return;
             }
 
-            if (e.Text == "," && ((System.Windows.Controls.TextBox)sender).Text.Contains(","))
+            if (e.Text == "," && textBox.Text.Contains(","))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(e.Text, 0) && e.Text != ",")
             {
                 e.Handled = true;
             }
