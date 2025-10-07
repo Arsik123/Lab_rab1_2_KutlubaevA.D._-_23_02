@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Lab_rab1_2_KutlubaevA.D._БПИ_23_02.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ЛР1 — Часть 2 (Геометрические фигуры)" Height="450" Width="600">
+        Title="ЛР1 — Часть 2 (Фигуры)" Height="200" Width="300" MinHeight="200" MinWidth="300">
     <Grid>
         <TabControl>
             <TabItem Header="Квадрат">

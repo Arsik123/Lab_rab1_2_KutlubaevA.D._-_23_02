@@ -12,6 +12,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
         }
         private void BtnSquareArea_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtSquareSide.Text))
+            {
+                MessageBox.Show("Поле для ввода не может быть пустым.");
+                return;
+            }
             if (double.TryParse(TxtSquareSide.Text, out double side) && side > 0)
             {
                 Square square = new Square(side);
@@ -26,6 +31,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
 
         private void BtnSquarePerimeter_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtSquareSide.Text))
+            {
+                MessageBox.Show("Поле для ввода не может быть пустым.");
+                return;
+            }
             if (double.TryParse(TxtSquareSide.Text, out double side) && side > 0)
             {
                 Square square = new Square(side);
@@ -39,6 +49,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
         }
         private void BtnEllipseArea_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtEllipseA.Text) || string.IsNullOrEmpty(TxtEllipseB.Text))
+            {
+                MessageBox.Show("Поля для ввода не могут быть пустыми.");
+                return;
+            }
             if (double.TryParse(TxtEllipseA.Text, out double rA) && rA > 0 &&
                 double.TryParse(TxtEllipseB.Text, out double rB) && rB > 0)
             {
@@ -54,6 +69,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
 
         private void BtnEllipsePerimeter_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtEllipseA.Text) || string.IsNullOrEmpty(TxtEllipseB.Text))
+            {
+                MessageBox.Show("Поля для ввода не могут быть пустыми.");
+                return;
+            }
             if (double.TryParse(TxtEllipseA.Text, out double rA) && rA > 0 &&
                 double.TryParse(TxtEllipseB.Text, out double rB) && rB > 0)
             {
@@ -69,6 +89,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
 
         private void BtnTrapArea_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtTrapBaseA.Text) || string.IsNullOrEmpty(TxtTrapBaseB.Text) || string.IsNullOrEmpty(TxtTrapHeight.Text))
+            {
+                MessageBox.Show("Поля для ввода не могут быть пустыми.");
+                return;
+            }
             if (double.TryParse(TxtTrapBaseA.Text, out double bA) && bA > 0 &&
                 double.TryParse(TxtTrapBaseB.Text, out double bB) && bB > 0 &&
                 double.TryParse(TxtTrapHeight.Text, out double h) && h > 0)
@@ -85,6 +110,11 @@ namespace Lab_rab1_2_KutlubaevA.D._БПИ_23_02
 
         private void BtnTrapPerimeter_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtTrapBaseA.Text) || string.IsNullOrEmpty(TxtTrapBaseB.Text) || string.IsNullOrEmpty(TxtTrapHeight.Text))
+            {
+                MessageBox.Show("Поля для ввода не могут быть пустыми.");
+                return;
+            }
             if (double.TryParse(TxtTrapBaseA.Text, out double bA) && bA > 0 &&
                 double.TryParse(TxtTrapBaseB.Text, out double bB) && bB > 0 &&
                 double.TryParse(TxtTrapHeight.Text, out double h) && h > 0)
